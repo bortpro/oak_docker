@@ -1,31 +1,16 @@
-version: "3.8"
-
 services:
   ros2_oak_dev:
-    build: .
-    container_name: ros2_oak_dev
-    image: ros2_oak_dev:latest
-    network_mode: host
-    ipc: host
+    build:
+      context: .
+      platforms:
+        - linux/arm64
+    platform: linux/arm64
     privileged: true
-    stdin_open: true
-    tty: true
-    environment:
-      - DISPLAY=${DISPLAY}
-      - ROS_DOMAIN_ID=0
     volumes:
-      # Mount your workspace
       - ./ros2_ws:/ros2_ws
-      # USB device access (needed for OAK cameras)
-      - /dev/bus/usb:/dev/bus/usb
-      - /dev:/dev
-      # X11 for visualization (optional)
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      # Mount home directory for storing images
       - ./images:/images
-    devices:
       - /dev/bus/usb:/dev/bus/usb
-    device_cgroup_rules:
-      - "c 189:* rmw"
     working_dir: /ros2_ws
-    command: tail -f /dev/null
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
