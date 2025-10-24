@@ -1,33 +1,18 @@
-# Use ROS2 Humble as base
-FROM osrf/ros:humble-desktop
+FROM ros:humble-ros-base
 
-# Install dependencies
+# OS deps
 RUN apt-get update && apt-get install -y \
-    python3-pip \
-    usbutils \
-    wget \
-    git \
-    libusb-1.0-0 \
-    python3-opencv \
-    ros-humble-cv-bridge \
-    ros-humble-vision-msgs \
-    ros-humble-depthai-ros \
-    ros-humble-depthai-bridge \
-    ros-humble-depthai-descriptions \
+    python3-pip usbutils wget git libusb-1.0-0 python3-opencv \
+    ros-humble-cv-bridge ros-humble-vision-msgs \
+    build-essential python3-colcon-common-extensions \
     && rm -rf /var/lib/apt/lists/*
 
-# Install depthai Python library
-RUN pip3 install depthai opencv-python
+# Python deps for DepthAI capture
+RUN pip3 install --no-cache-dir depthai==2.30.0.0 opencv-python
 
-# Create workspace
-RUN mkdir -p /ros2_ws/src
+# Workspace
 WORKDIR /ros2_ws
+# No colcon build here; build after volumes are mounted
 
-# Source ROS2 setup in bashrc
-RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-RUN echo "if [ -f /ros2_ws/install/setup.bash ]; then source /ros2_ws/install/setup.bash; fi" >> ~/.bashrc
-
-# Build the workspace (will be empty initially)
-RUN /bin/bash -c "source /opt/ros/humble/setup.bash && colcon build"
-
+# Default shell
 CMD ["/bin/bash"]
