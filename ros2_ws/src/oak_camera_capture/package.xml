@@ -4,7 +4,7 @@
   <name>oak_camera_capture</name>
   <version>0.0.1</version>
   <description>OAK Camera Image Capture Node</description>
-  <maintainer email="you@example.com">Your Name</maintainer>
+  <maintainer email="diproc@stanford.edu">Dipro Chakraborty</maintainer>
   <license>Apache-2.0</license>
 
   <depend>rclpy</depend>
