@@ -1,5 +1,8 @@
-# created by virtualenv automatically
+# Mac
+.DS_Store
+
 # Python venv
+.Python
 bin/
 lib/
 pyvenv.cfg
@@ -14,7 +17,4 @@ ros2_ws/log/
 # Generated images
 images/*.jpeg
 images/*.jpg
-
-# Docker
-.dockerignore
-
+images/*.png
