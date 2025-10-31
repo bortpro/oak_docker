@@ -9,6 +9,7 @@ services:
     volumes:
       - ./ros2_ws:/ros2_ws
       - ./images:/images
+      - ./videos:/videos
       - /dev/bus/usb:/dev/bus/usb
     working_dir: /ros2_ws
     tty: true
