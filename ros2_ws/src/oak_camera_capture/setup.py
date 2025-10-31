@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'ros_grab = oak_camera_capture.ros_grab_node:main',
+            'ros_video = oak_camera_capture.ros_video_node:main',
         ],
     },
 )
