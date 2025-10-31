@@ -1,0 +1,16 @@
+services:
+  ros2_oak_dev:
+    build:
+      context: .
+      platforms:
+        - linux/arm64
+    platform: linux/arm64
+    privileged: true
+    volumes:
+      - ./ros2_ws:/ros2_ws
+      - ./images:/images
+      - /dev/bus/usb:/dev/bus/usb
+    working_dir: /ros2_ws
+    tty: true
+    stdin_open: true
+    restart: unless-stopped

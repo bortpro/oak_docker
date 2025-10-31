@@ -1,0 +1,20 @@
+# created by virtualenv automatically
+# Python venv
+bin/
+lib/
+pyvenv.cfg
+__pycache__/
+*.pyc
+
+# ROS2 build artifacts
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Generated images
+images/*.jpeg
+images/*.jpg
+
+# Docker
+.dockerignore
+
