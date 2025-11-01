@@ -10,6 +10,7 @@ services:
       - ./ros2_ws:/ros2_ws
       - ./images:/images
       - ./videos:/videos
+      - ./webcam_images:/webcam_images
       - /dev/bus/usb:/dev/bus/usb
     working_dir: /ros2_ws
     tty: true
