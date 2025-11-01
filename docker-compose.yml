@@ -6,6 +6,9 @@ services:
         - linux/arm64
     platform: linux/arm64
     privileged: true
+    devices:
+      - /dev/video0:/dev/video0
+      - /dev/video1:/dev/video1
     volumes:
       - ./ros2_ws:/ros2_ws
       - ./images:/images
