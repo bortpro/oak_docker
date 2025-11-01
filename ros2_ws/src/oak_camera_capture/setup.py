@@ -24,6 +24,7 @@ setup(
             'ros_video = oak_camera_capture.ros_video_node:main',
             'device_discovery = oak_camera_capture.device_discovery:main',
             'webcam_capture = oak_camera_capture.webcam_capture:main',
+            'poe_capture = oak_camera_capture.poe_camera_capture:main',
         ],
     },
 )
