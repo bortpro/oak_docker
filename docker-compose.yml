@@ -5,6 +5,7 @@ services:
       platforms:
         - linux/arm64
     platform: linux/arm64
+    network_mode: "host"
     privileged: true
     devices:
       - /dev/video0:/dev/video0
