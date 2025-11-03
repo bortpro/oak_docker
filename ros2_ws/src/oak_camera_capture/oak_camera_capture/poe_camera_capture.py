@@ -71,7 +71,7 @@ class POECameraCaptureNode(Node):
                 # Capture the specified number of images
                 while self.image_count < self.num_images:
                     encFrame = qJpeg.get()
-                    
+
                     timestamp = int(time.time() * 1000)  # milliseconds for uniqueness
                     filename = f"{self.output_dir}/POE_{timestamp}.jpeg"
 
@@ -121,4 +121,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
