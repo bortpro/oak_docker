@@ -1,5 +1,6 @@
 services:
   ros2_oak_dev:
+    container_name: ros2_oak_dev
     build:
       context: .
       platforms:
