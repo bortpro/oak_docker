@@ -13,8 +13,7 @@ RUN pip3 install --no-cache-dir depthai==2.30.0.0 opencv-python
 # Workspace
 WORKDIR /ros2_ws
 # No colcon build here; build after volumes are mounted
-
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
+RUN echo "source /ros2_ws/install/setup.bash 2>/dev/null || true" >> /root/.bashrc
 # Default shell
 CMD ["/bin/bash"]
-
-# comment
